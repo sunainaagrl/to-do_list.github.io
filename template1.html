@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <script src="jquery.PrintArea.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Classic</title>
+        <style>
+
+            .half{
+                width: 50%;
+            }
+
+            .left {
+                display: inline-block;
+                width: 48%;
+                height: 450px;
+                margin-top: 0px;
+            }
+
+            .right {
+                position: fixed;
+                top: 100px;
+                right: 40px;
+            }
+
+            .content {
+                background: linear-gradient(darkblue, lightblue);
+            }
+
+            table#mytable {
+
+                font-family: 'Sansita Swashed', cursive;
+                background-color: yellow;
+                border: 3px solid grey;
+                margin-left: 30%;
+            }
+
+            table#mytable caption {
+                font-family: "cursive";
+                font-size: 3em;
+            }
+
+            td,
+            th {
+                border: 2px solid grey;
+                padding: 20px 30px;
+                width: 200px;
+                text-align: center;
+            }
+
+            table#mytable th {
+                background-color: lightcoral;
+                font-size: 2em;
+            }
+
+            .footer {
+                background-color: black;
+                position: relative;
+                font-size: 2em;
+                margin-top: 20%;
+                text-align: center;
+            }
+
+            table#table_details {
+                color: white;
+                font-size: 2em;
+            }
+
+            table#table_details input {
+                height: 50px;
+                font-size: 0.8em;
+            }
+        </style>
+        <script>
+
+            function sortTable() {
+                var table, rows, switching, i, x, y, shouldSwitch;
+                table = document.getElementById("mytable");
+                switching = true;
+                while (switching) {
+                    switching = false;
+                    rows = table.rows;
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        shouldSwitch = false;
+                        x = rows[i].getElementsByTagName("TD")[1];
+                        y = rows[i + 1].getElementsByTagName("TD")[1];
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                    if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                    }
+                }
+            }
+
+            angular.module("myapp", []).controller("title_name",
+                function ($scope) {
+                    $scope.title = prompt("Enter your title for list: ");
+                }
+            );
+
+            $(document).ready(function () {
+                $("#submit").click(function () {
+                    details = [
+                        {
+                            "title": $("#title").val(),
+                            "task": $("#task").val(),
+                            "dline": $("#dline").val()
+                        }
+                    ];
+
+                    for (var i = 0; i < details.length; i++) {
+                        var tr = "<tr>";
+                        var td1 = "<td>" + details[i]["task"] + "</td>";
+                        var td2 = "<td>" + details[i]["dline"] + "</td>";
+                        $("#mytable").append(tr + td1 + td2);
+                        sortTable();
+                    }
+                });
+
+                
+            });
+
+
+        </script>
+    </head>
+
+    <body ng-app="myapp">
+        <div class="content">
+            <div class="left half">
+                <table id="table_details">
+                    <form id="form1" class="form1class" name="forms" action="">
+                        <tr>
+                            <td><label for="task">Task</label></td>
+                            <td><input type="text" id="task" placeholder="Enter your task" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="dline">Deadline </label></td>
+                            <td><input type="date" name="dline" id="dline" placeholder="Enter date..." required></td>
+                        </tr>
+
+                        <tr style="align-items: center;">
+                            <td colspan="3"><input type="button" value="Submit" id="submit" name="submitbutton"></td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
+            <div class="right half">
+                <p id="display"></p>
+                <div id="div1 pm" ng-controller="title_name">
+                    <table id="mytable">
+                        <caption style="color: white">{{title}}</caption>
+                        <tr>
+                            <th>Task</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </table>
+                    <button class="btn">Print Table</button>
+                </div>
+            </div>
+
+
+            <div class="footer">
+                <span style='color: blue'>H</span>
+                <span style='color: red'>a</span>
+                <span style='color: yellow'>p</span>
+                <span style='color: blue'>p</span>
+                <span style='color: green'>y </span>
+                <span style='color: red'>T</span>
+                <span style='color: blue'>o </span>
+                <span style='color: yellow'>H</span>
+                <span style='color: green'>e</span>
+                <span style='color: red'>l</span>
+                <span style='color: blue'>p</span>
+            </div>
+        </div>
+        <script>
+            $(".btn").click(function(){
+                var printme=document.getElementById("mytable");
+                var win=window.open("","","width=900,height=700");
+                win.document.write(printme.outerHTML);
+                win.document.close();
+                win.focus();
+                win.print();
+                win.close();
+            });
+        </script>
+    </body>
+
+</html>
