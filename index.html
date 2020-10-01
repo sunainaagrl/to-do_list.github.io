@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive to-do list</title>
+    <style>
+        .header{
+            border: 3px double black;
+            background: linear-gradient(red,blue);
+            color: rgb(253, 229, 229) ;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+        }
+        img#n1,img#n5{
+            height: 80px;
+            width: 80px;
+        }
+        img#n2, img#n4, img#n6{
+            height: 65px;
+            width: 65px;
+        }
+        img#n3,img#n7{
+            height: 50px;
+            width: 50px;
+        }
+
+        .main{
+            background: linear-gradient(lightpink,purple);
+        }
+
+        .main button{
+            height: 100px;
+            width: 200px;
+            margin-top: 11%;
+            margin-left: 42%;
+            font-size: 2em;
+            background-color: rgb(248, 106, 106);
+            font-family: 'Lobster', cursive;
+            color: whitesmoke;
+        }
+
+        button:hover{
+            background-color: rgb(250, 147, 147);
+        }
+
+        .footer{
+            background-color: black;
+            position: relative;
+            font-size: 2em;
+            margin-top: 11%;
+            text-align: center;
+        }
+    </style>
+    <script>
+        angular.module("mapp", []).controller("name",function ($scope) {
+                $scope.user = prompt("Enter your Name: ");
+            }
+        );
+
+    </script>
+</head>
+<body ng-app="mapp">
+    
+    <div class="header" >
+        <h1>
+            
+            <img src="notes.png" alt="" id="n2">
+            <img src="notes.png" alt="" id="n3">
+            <img src="notes.png" alt="" id="n4">
+            <img src="notes.png" alt="" id="n5">
+            <img src="notes.png" alt="" id="n6">
+            <img src="notes.png" alt="" id="n7">
+            To-Do List
+            <img src="notes.png" alt="" id="n7">
+            <img src="notes.png" alt="" id="n6">
+            <img src="notes.png" alt="" id="n5">
+            <img src="notes.png" alt="" id="n4">
+            <img src="notes.png" alt="" id="n3">
+            <img src="notes.png" alt="" id="n2">
+            
+        </h1>
+    </div>
+    <div class="main" ng-controller="name">
+        
+            <h2>Welcome <span style='color: blue'>{{user}}</span>  to your one and only step towards task-handling! In this step you will have a To-Do List in preference order of your deadlines (irrespective of the order of data given by you).</h2>
+            <h3>
+                Click on the button below to get started with your first step towards success!
+            </h3>
+        
+        <button> <a href="template1.html">Get Started</a> </button>
+        <div class="footer">
+            <span style='color: blue'>H</span>
+            <span style='color: red'>a</span>
+            <span style='color: yellow'>p</span>
+            <span style='color: blue'>p</span>
+            <span style='color: green'>y </span>
+            <span style='color: red'>T</span>
+            <span style='color: blue'>o </span>
+            <span style='color: yellow'>H</span>
+            <span style='color: green'>e</span>
+            <span style='color: red'>l</span>
+            <span style='color: blue'>p</span>
+        </div>
+    </div>
+    
+</body>
+</html>
