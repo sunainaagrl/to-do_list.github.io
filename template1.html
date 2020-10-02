@@ -2,7 +2,10 @@
 <html lang="en">
 
     <head>
-            <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <script src="jquery.PrintArea.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
@@ -12,37 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Classic</title>
         <style>
-            
-            .header {
-                border: 3px double black;
-                background: linear-gradient(red, blue);
-                color: rgb(253, 229, 229);
-                text-align: center;
-                font-family: 'Dancing Script', cursive;
-                font-size: 2em;
-            }
-
-            img#n1,
-            img#n5 {
-                height: 80px;
-                width: 80px;
-            }
-
-            img#n2,
-            img#n4,
-            img#n6 {
-                height: 65px;
-                width: 65px;
-            }
-
-            img#n3,
-            img#n7 {
-                height: 50px;
-                width: 50px;
-            }
-
-
-            .half{
+            .half {
                 width: 50%;
             }
 
@@ -53,7 +26,6 @@
                 margin-top: 0px;
             }
 
-            
             .right {
                 position: fixed;
                 top: 200px;
@@ -85,6 +57,35 @@
                 text-align: center;
             }
 
+            .header {
+                border: 3px double black;
+                background: linear-gradient(red, blue);
+                color: rgb(253, 229, 229);
+                text-align: center;
+                font-family: 'Dancing Script', cursive;
+                font-size: 2em;
+            }
+
+            img#n1,
+            img#n5 {
+                height: 80px;
+                width: 80px;
+            }
+
+            img#n2,
+            img#n4,
+            img#n6 {
+                height: 65px;
+                width: 65px;
+            }
+
+            img#n3,
+            img#n7 {
+                height: 50px;
+                width: 50px;
+            }
+
+
             table#mytable th {
                 background-color: lightcoral;
                 font-size: 2em;
@@ -94,7 +95,7 @@
                 background-color: black;
                 position: relative;
                 font-size: 2em;
-                margin-top: 20%;
+                margin-top: 6%;
                 text-align: center;
             }
 
@@ -103,12 +104,12 @@
                 font-size: 2em;
             }
 
-            table#table_details input, table#table_details button {
+            table#table_details input,
+            table#table_details button {
                 height: 50px;
                 font-size: 0.8em;
                 /* width: 100px; */
             }
-
         </style>
         <script>
 
@@ -160,7 +161,7 @@
                     }
                 });
 
-                
+
             });
 
 
@@ -203,7 +204,7 @@
                         <tr style="align-items: center;">
                             <td colspan="3">
                                 <input type="button" value="Submit" id="submit" name="submitbutton">
-                                <button value="Submit" class="btn">Print List</button></td> 
+                                <button value="Submit" class="btn" onclick="PrintElem('#mydiv')">Print List</button></td>
                         </tr>
                     </form>
                 </table>
@@ -218,20 +219,20 @@
                             <th>Deadline</th>
                         </tr>
                     </table>
-                    
+
                 </div>
             </div>
 
 
             <div class="footer">
                 <span style='color: white'>Happy to help!</span>
-                
+
             </div>
         </div>
         <script>
-            $(".btn").click(function(){
-                var printme=document.getElementById("mytable");
-                var win=window.open("","","width=900,height=700");
+            $(".btn").click(function () {
+                var printme = document.getElementById("mytable");
+                var win = window.open("", "", "width=900,height=700");
                 win.document.write(printme.outerHTML);
                 win.document.close();
                 win.focus();
