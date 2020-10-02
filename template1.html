@@ -14,7 +14,6 @@
             .half{
                 width: 50%;
             }
-            
 
             .left {
                 display: inline-block;
@@ -72,10 +71,12 @@
                 font-size: 2em;
             }
 
-            table#table_details input {
+            table#table_details input, table#table_details button {
                 height: 50px;
                 font-size: 0.8em;
+                /* width: 100px; */
             }
+
         </style>
         <script>
 
@@ -149,7 +150,9 @@
                         </tr>
 
                         <tr style="align-items: center;">
-                            <td colspan="3"><input type="button" value="Submit" id="submit" name="submitbutton"></td>
+                            <td colspan="3">
+                                <input type="button" value="Submit" id="submit" name="submitbutton">
+                                <button value="Submit" class="btn">Print List</button></td> 
                         </tr>
                     </form>
                 </table>
@@ -164,23 +167,14 @@
                             <th>Deadline</th>
                         </tr>
                     </table>
-                    <button class="btn">Print Table</button>
+                    
                 </div>
             </div>
 
 
             <div class="footer">
-                <span style='color: blue'>H</span>
-                <span style='color: red'>a</span>
-                <span style='color: yellow'>p</span>
-                <span style='color: blue'>p</span>
-                <span style='color: green'>y </span>
-                <span style='color: red'>T</span>
-                <span style='color: blue'>o </span>
-                <span style='color: yellow'>H</span>
-                <span style='color: green'>e</span>
-                <span style='color: red'>l</span>
-                <span style='color: blue'>p</span>
+                <span style='color: white'>Happy to help!</span>
+                
             </div>
         </div>
         <script>
