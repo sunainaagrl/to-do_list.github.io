@@ -10,6 +10,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Classic</title>
         <style>
+            
+            .header {
+                border: 3px double black;
+                background: linear-gradient(red, blue);
+                color: rgb(253, 229, 229);
+                text-align: center;
+                font-family: 'Dancing Script', cursive;
+                font-size: 2em;
+            }
+
+            img#n1,
+            img#n5 {
+                height: 80px;
+                width: 80px;
+            }
+
+            img#n2,
+            img#n4,
+            img#n6 {
+                height: 65px;
+                width: 65px;
+            }
+
+            img#n3,
+            img#n7 {
+                height: 50px;
+                width: 50px;
+            }
+
 
             .half{
                 width: 50%;
@@ -22,6 +51,7 @@
                 margin-top: 0px;
             }
 
+            
             .right {
                 position: fixed;
                 top: 100px;
@@ -136,6 +166,25 @@
     </head>
 
     <body ng-app="myapp">
+        <div class="header">
+            <h1>
+
+                <img src="notes.png" alt="" id="n2">
+                <img src="notes.png" alt="" id="n3">
+                <img src="notes.png" alt="" id="n4">
+                <img src="notes.png" alt="" id="n5">
+                <img src="notes.png" alt="" id="n6">
+                <img src="notes.png" alt="" id="n7">
+                To-Do List
+                <img src="notes.png" alt="" id="n7">
+                <img src="notes.png" alt="" id="n6">
+                <img src="notes.png" alt="" id="n5">
+                <img src="notes.png" alt="" id="n4">
+                <img src="notes.png" alt="" id="n3">
+                <img src="notes.png" alt="" id="n2">
+
+            </h1>
+        </div>
         <div class="content">
             <div class="left half">
                 <table id="table_details">
